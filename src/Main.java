@@ -6,7 +6,7 @@ import MemoryStructures.RAM;
 public class Main {
 
     public static Page[] createExampleList(){
-        Page[] pageList = PageGenerator.generatePages(20, 5);
+        Page[] pageList = PageGenerator.generatePages(100, 20);
         int index = 0;
         int[] exampleValues = new int[]{1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5};
         Page[] examplePages = new Page[12];
@@ -14,7 +14,7 @@ public class Main {
             examplePages[index] = new Page(index, value);
             index++;
         }
-        return examplePages;
+        return pageList;
     }
     public static void main(String[] args) {
 

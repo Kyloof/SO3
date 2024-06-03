@@ -1,5 +1,7 @@
 package MemoryStructures;
 
+import java.util.Arrays;
+
 public class RAM {
     private final int size;
     private Page[] frames;
@@ -75,6 +77,22 @@ public class RAM {
         return index;
     }
 
+    public void showRam(){
+        System.out.print("RAM state: ");
+        showPages();
+    }
+
+    public void showPages(){
+
+        System.out.print("| ");
+        for (int i = 0; i < size; i++){
+            if(frames[i]!=null){
+                System.out.print(frames[i].getValue() + " | ");
+            }
+        }
+        System.out.println();
+        System.out.println();
+    }
 
     public Page[] getFrames() {
         return frames;

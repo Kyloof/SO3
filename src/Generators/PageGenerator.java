@@ -14,4 +14,11 @@ public class PageGenerator {
         }
         return pageList;
     }
+
+    public static Page generatePage(int bound, int size){
+        Random random = new Random();
+
+        return new Page(1, random.nextInt(bound,bound+size));
+
+    }
 }

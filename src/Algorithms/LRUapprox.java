@@ -41,7 +41,6 @@ public class LRUapprox implements replacementAlgorithm{
                     currentPage.setReferenceBit(0);
                     queue.addLast(currentPage);
                 }
-                System.out.println("Switched " + currentPage.getValue() + " to " + pageList[i].getValue());
                 queue.addLast(pageList[i]);
                 Integer getIndex = ram.getIndex(currentPage.getValue());
                 if (getIndex==null){

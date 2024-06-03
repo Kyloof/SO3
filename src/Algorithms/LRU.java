@@ -3,6 +3,8 @@ package Algorithms;
 import MemoryStructures.Page;
 import MemoryStructures.RAM;
 
+import java.util.ArrayList;
+
 public class LRU implements replacementAlgorithm{
     @Override
     public int simulate(Page[] pageList, RAM ram) {
@@ -31,4 +33,31 @@ public class LRU implements replacementAlgorithm{
 
         return pageFaults;
     }
+
+    public boolean simulateOneTU(ArrayList<Page> pageList, RAM ram, int timeUnit, int size) {
+
+
+        for (int i = 0; i < ram.getSize(); i++){
+            if (ram.getFrames()[i] == null){
+                ram.addPage(pageList.get(timeUnit));
+                return false;
+            }
+        }
+
+        Integer getIndex = ram.getIndex(pageList.get(timeUnit).getValue());
+
+        if (getIndex == null){
+            int maxWaitingTime = ram.getIndexMaxWaitTime();
+            ram.getFrames()[maxWaitingTime] = pageList.get(timeUnit);
+
+            return true;
+        }
+        else{
+            ram.getFrames()[getIndex].setWaiting_time(0);
+            return false;
+        }
+
+    }
+
+
 }
